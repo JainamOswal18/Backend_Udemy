@@ -81,7 +81,7 @@ app.post("/add", async (req, res) => {
         total: countries.length,
         error: "Country has already been added, try again!",
         users: users,
-        color: users[currentUserId - 1].color,
+        color: currentUser,
       });
     }
   } catch (err) {
@@ -95,7 +95,7 @@ app.post("/add", async (req, res) => {
       total: countries.length,
       error: "Country name does not exist, try again!",
       users: users,
-      color: users[currentUserId - 1].color,
+      color: currentUser,
     });
   }
 });
