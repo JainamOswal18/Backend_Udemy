@@ -31,6 +31,7 @@ app.get("/", async (req, res) => {
     });
   } catch (error) {
     res.status(500).send("Something went wrong! Try again later!");
+    console.log(error);
   }
 });
 
@@ -40,6 +41,7 @@ app.post("/add", async (req, res) => {
     res.redirect("/");
   } catch (error) {
     res.status(500).send("Something went wrong!");
+    console.log(error);
   }
 });
 
