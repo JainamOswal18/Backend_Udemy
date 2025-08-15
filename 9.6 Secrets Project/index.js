@@ -134,13 +134,13 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post("/submit", (req, res) => {
+app.post("/submit", async (req, res) => {
   
   if (req.isAuthenticated()) {
     console.log(req.user);
     console.log(req.body);
     
-    const user = db.query("Update auth set secrets = $1 where username = $2", [req.body.secret, req.user.username])
+    const user = await db.query("Update auth set secrets = $1 where username = $2", [req.body.secret, req.user.username])
 
     req.user.secrets = req.body.secret;
 
